@@ -1,0 +1,2 @@
+include ':mobile', ':wear', ':sensordesc', ':glass', ':sensordesc1'
+project(':sensordesc1').projectDir = new File('sensordesc')

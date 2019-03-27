@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">glass</string>
+    <string name="reconnect">Reconnect</string>
+    <string name="connect">Connect</string>
+</resources>
