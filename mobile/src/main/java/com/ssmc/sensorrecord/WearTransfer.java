@@ -82,7 +82,7 @@ public class WearTransfer implements DataApi.DataListener {
     @Override
     public void onDataChanged(DataEventBuffer dataEventBuffer) {
         for (DataEvent event : dataEventBuffer) {
-            Log.i(TAG, "onDataChanged: 状态为："+event.getType());
+            Log.i(TAG, "onDataChanged: 状态为：" + event.getType());
             if (event.getType() == DataEvent.TYPE_CHANGED) {
                 // DataItem changed
                 DataItem item = event.getDataItem();

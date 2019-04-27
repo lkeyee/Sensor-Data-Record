@@ -146,7 +146,7 @@ public class BluetoothService {
         private final OutputStream mmOutStream;
 
         public ConnectedThread(BluetoothSocket socket) {
-            Log.d(TAG, "create ConnectedThread: " );
+            Log.d(TAG, "create ConnectedThread: ");
             mmSocket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
@@ -170,11 +170,10 @@ public class BluetoothService {
             int bytes;
             try {
                 oos = new ObjectOutputStream(mmOutStream);
-//                oos = new ObjectOutputStream(mmOutStream);
                 // Keep listening to the InputStream while connected
-                while(true){
+                while (true) {
                     Log.v(TAG, "Queue: " + SensorDataWriter.mSensorRecordQueue.isEmpty());
-                    if (!SensorDataWriter.mSensorRecordQueue.isEmpty()){
+                    if (!SensorDataWriter.mSensorRecordQueue.isEmpty()) {
                         SensorRecord sensorRecord = SensorDataWriter.mSensorRecordQueue.take();
 //                        Log.d(TAG, "Sensor: " + sensorRecord.getStringType());
                         write(sensorRecord);

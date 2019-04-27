@@ -115,25 +115,6 @@ public class GlassActivity extends AppCompatActivity {
         });
         startRecord();
 
-//        SensorManager mSensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
-//
-//        assert mSensorManager != null;
-//        mSensorManager.registerListener(new SensorEventListener() {
-//                                            @Override
-//                                            public void onSensorChanged(SensorEvent event) {
-//                                                startTime = System.currentTimeMillis();
-//                                                float secondToBegin = (System.currentTimeMillis() - startTime) / 1000.00f; //计算从任务开始到现在的用时
-//                                                SensorRecord sensorRecord = new SensorRecord(event, System.currentTimeMillis(), secondToBegin);
-//                                                mBluetoothService.write(sensorRecord);
-//                                            }
-//
-//                                            @Override
-//                                            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-//
-//                                            }
-//                                        },
-//                mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY),
-//                SensorManager.SENSOR_DELAY_NORMAL);
     }
 
 

@@ -46,7 +46,7 @@ public class SensorDataWriter implements ISensorStorage {
 
     private static int count=0;
     private final int PORT=7220;
-    private final String HOST="172.20.10.8"; //pc的ip地址
+    private final String HOST="172.31.73.80"; //pc的ip地址
 
     private String mFilePrefix;//文件名前缀
 

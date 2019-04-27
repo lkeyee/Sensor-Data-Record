@@ -88,11 +88,7 @@ public class GlassSensorRecordService extends Service {
             float secondToBegin = (System.currentTimeMillis() - startTime) / 1000.00f; //计算从任务开始到现在的用时
             SensorRecord sensorRecord = new SensorRecord(event, System.currentTimeMillis(), secondToBegin);
             SensorDataWriter.mSensorRecordQueue.offer(sensorRecord);
-//            try {
-//                mSensorDataWriter.writeSensorData(sensorRecord);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+
         }
 
         @Override

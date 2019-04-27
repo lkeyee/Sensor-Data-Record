@@ -494,10 +494,8 @@ public class BluetoothService extends Service {
                     while(true) {
                         if(ois!=null) {
                             SensorRecord sensorRecord = (SensorRecord) ois.readObject();
-//                        Log.d(TAG, "run: " + sensorRecord.getStringType());
                             Log.e(TAG, "write: type = " + sensorRecord.getStringType() + " value = " + sensorRecord.getValues()[0]);
                             MobileSensorRecordService.writeWearData(sensorRecord,count);
-
                         }
                     }
 

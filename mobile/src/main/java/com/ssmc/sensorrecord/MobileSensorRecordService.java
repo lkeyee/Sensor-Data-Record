@@ -44,7 +44,6 @@ public class MobileSensorRecordService extends Service {
         mSensorEventListener = new MySensorEventListener();
         mSensorDataWriter1 = new SensorDataWriter();
         mSensorDataWriter2=new SensorDataWriter();
-//
     }
 
 
