@@ -45,15 +45,15 @@ public class SensorDataWriter implements ISensorStorage {
     private static final int MIN_TIME_INTERVAL = 10;
 
     private static int count=0;
-    private final int PORT=7220;
-    private final String HOST="172.31.73.80"; //pc的ip地址
+//    private final int PORT=7220;
+//    private final String HOST="172.20.10.8";
 
     private String mFilePrefix;//文件名前缀
 
     private Executor mExecutor = Executors.newSingleThreadExecutor();
     private BlockingQueue<SensorRecord> mSensorRecordQueue = new LinkedBlockingQueue<>();
     private Map<String, BufferedWriter> mSensorTypeMapToOutput = new HashMap<>();
-    private Map<String, BufferedWriter> mSensorTypeMapToServer=new HashMap<>();
+//    private Map<String, BufferedWriter> mSensorTypeMapToServer=new HashMap<>();
     private boolean isRunning = false;
 
     class StorageTask implements Runnable {
@@ -70,9 +70,9 @@ public class SensorDataWriter implements ISensorStorage {
                     //数据写入到单个文件
                     BufferedWriter out = mSensorTypeMapToOutput.get(sensorRecord.getStringType());
                     // 将数据传送给服务器
-                    BufferedWriter bw=mSensorTypeMapToServer.get(sensorRecord.getStringType());
+//                    BufferedWriter bw=mSensorTypeMapToServer.get(sensorRecord.getStringType());
                     writeToSingleFile(out, sensorRecord);
-                    transferSingleFileToServer(bw,sensorRecord);
+//                    transgerSingleFileToServer(bw,sensorRecord);
                     //时间相同的记录整合在一起
                     long timeStamp = sensorRecord.getTimeStamp();
                     Log.i(TAG, "run: timeStamp="+timeStamp);
@@ -186,12 +186,12 @@ public class SensorDataWriter implements ISensorStorage {
         if (!mSensorTypeMapToOutput.containsKey(sensorType) ) {
             //用hashTable来保存输出流与传感器类型的映射关系
             BufferedWriter out = createOutputStream(PATH+"/"+mFilePrefix+"_SensorData", sensorRecord.getStringType().substring(15));
-            Socket socket=new Socket(HOST,PORT);
-            BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            bw.write(mFilePrefix+"_"+sensorRecord.getStringType().substring(15)+count+"\n");
-            bw.flush();
+//            Socket socket=new Socket(HOST,PORT);
+//            BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+//            bw.write(mFilePrefix+"_"+sensorRecord.getStringType().substring(15)+count+"\n");
+//            bw.flush();
             mSensorTypeMapToOutput.put(sensorRecord.getStringType(), out);
-            mSensorTypeMapToServer.put(sensorRecord.getStringType(),bw);
+//            mSensorTypeMapToServer.put(sensorRecord.getStringType(),bw);
         }
         mSensorRecordQueue.offer(sensorRecord);
     }
